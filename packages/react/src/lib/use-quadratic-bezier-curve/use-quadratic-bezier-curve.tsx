@@ -9,7 +9,7 @@ export interface UseQuadraticBezierCurveProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
-  shadow?: string;
+  shadow?: string; // CSS filter drop-shadow
 }
 
 /**
@@ -29,11 +29,11 @@ export function UseQuadraticBezierCurve(props: UseQuadraticBezierCurveProps) {
 
   if (props.shadow) {
     return (
-      <span style={{filter: `drop-shadow(${props.shadow})`, WebkitFilter: `drop-shadow(${props.shadow})`}}>
+      <div style={{filter: `drop-shadow(${props.shadow})`, WebkitFilter: `drop-shadow(${props.shadow})`}}>
         <div ref={ref} style={{...props.style}} className={props.className}>
           {props.children}
         </div>
-      </span>
+      </div>
     )
   }
 
