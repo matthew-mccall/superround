@@ -40,17 +40,17 @@ function getDistanceFromCorner(distanceFromCorner: string|number, element: HTMLE
 export function UseQuadraticBezierCurve(
   element: HTMLElement, 
   distanceFromCorner: string|number, 
-  controlPointRadians = (Math.PI / 2), 
-  controlPointRadius: string|number = Math.SQRT2): boolean {
+  controlPointRadians = (Math.PI / 4), 
+  controlPointRadius: string|number = Math.SQRT2): string | null {
   const distance = getDistanceFromCorner(distanceFromCorner, element);
   if (distance === null) {
-    return false;
+    return null;
   }
 
   if (typeof controlPointRadius === 'string') {
     const controlPointRadiusPx = toPx(controlPointRadius, element);
     if (controlPointRadiusPx === null) {
-      return false;
+      return null;
     }
 
     controlPointRadius = controlPointRadiusPx;
@@ -66,7 +66,7 @@ export function UseQuadraticBezierCurve(
   /**
    * The following diagram shows the axes used to create the path.
    * 
-   * wLesser
+   *  wLesser
    *     |________|
    * ___/|________|\___ hLesser
    *   [ |        | ]
@@ -74,7 +74,7 @@ export function UseQuadraticBezierCurve(
    * __[_|________|_]__ hGreater
    *    \|________|/
    *     |        |
-   *          wGreater
+   *           wGreater
    */
 
   const wLesser = distance;
@@ -82,7 +82,7 @@ export function UseQuadraticBezierCurve(
   const hLesser = distance;
   const hGreater = height - distance;
 
-  const path = `\\
+  const path = `path("\\
   M ${width} ${distance} \\
   Q ${wGreater + xOffset} ${hLesser - yOffset} ${wGreater} 0 \\
   H ${wLesser} \\
@@ -91,9 +91,9 @@ export function UseQuadraticBezierCurve(
   Q ${wLesser - xOffset} ${hGreater + yOffset} ${wLesser} ${height} \\
   H ${wGreater} \\
   Q ${wGreater + xOffset} ${hGreater + yOffset} ${width} ${hGreater} \\
-  Z \\`
+  Z")`
 
   element.style.clipPath = path;
 
-  return true;
+  return path;
 }
