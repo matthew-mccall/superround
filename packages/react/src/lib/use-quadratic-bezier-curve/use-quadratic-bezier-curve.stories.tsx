@@ -32,7 +32,12 @@ export const Squircle = {
     distanceFromCorner: 0.5,
     controlPointRadians: Math.PI / 4,
     controlPointRadius: Math.SQRT2,
-    style: {width: '200px', height: '200px', backgroundColor: 'tomato'},
+    children: (
+    <div style={{
+      width: '200px', 
+      height: '200px', 
+      backgroundColor: 'tomato',}}>
+    </div>),
     shadow: '0 0 3em rgba(0, 0, 0, 0.5)',
   },
 };
@@ -42,7 +47,10 @@ export const Stamp = {
     distanceFromCorner: 0.1,
     controlPointRadians: Math.PI / 4,
     controlPointRadius: 0,
-    style: {width: '200px', height: '200px', backgroundColor: 'cornflowerblue', margin: 'auto'},
+    children: <div style={{
+      width: '200px', 
+      height: '200px', 
+      backgroundColor: 'cornflowerblue'}} />,
     shadow: '0 0 3em rgba(0, 0, 0, 0.5)',
   },
 };

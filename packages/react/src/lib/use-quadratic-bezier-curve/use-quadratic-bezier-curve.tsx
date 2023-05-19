@@ -29,7 +29,7 @@ export function UseQuadraticBezierCurve(props: UseQuadraticBezierCurveProps) {
 
   if (props.shadow) {
     return (
-      <div style={{filter: `drop-shadow(${props.shadow})`, WebkitFilter: `drop-shadow(${props.shadow})`}}>
+      <div style={{filter: `drop-shadow(${props.shadow})`}}>
         <div ref={ref} style={{...props.style}} className={props.className}>
           {props.children}
         </div>
