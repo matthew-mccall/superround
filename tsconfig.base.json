@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@superround/react": ["packages/react/src/index.ts"],
       "@superround/vanilla": ["packages/vanilla/src/index.ts"]
     }
   },
