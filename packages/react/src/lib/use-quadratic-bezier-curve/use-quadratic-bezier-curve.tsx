@@ -3,12 +3,13 @@ import * as vanilla from "@superround/vanilla";
 
 /* eslint-disable-next-line */
 export interface UseQuadraticBezierCurveProps {
-  children?: React.ReactNode;
   distanceFromCorner: string|number;
-  controlPointRadians: number;
-  controlPointRadius: string|number;
+  controlPointRadians?: number;
+  controlPointRadius?: string|number;
+  children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
+  shadow?: string;
 }
 
 /**
@@ -24,10 +25,20 @@ export function UseQuadraticBezierCurve(props: UseQuadraticBezierCurveProps) {
     if (typeof window === 'undefined' || !ref.current) return; // SSR
 
     vanilla.UseQuadraticBezierCurve(ref.current, props.distanceFromCorner, props.controlPointRadians, props.controlPointRadius);
-  }, [ref, props.distanceFromCorner, props.controlPointRadians, props.controlPointRadius]);
+  }, [props.distanceFromCorner, props.controlPointRadians, props.controlPointRadius]);
+
+  if (props.shadow) {
+    return (
+      <span style={{filter: `drop-shadow(${props.shadow})`, WebkitFilter: `drop-shadow(${props.shadow})`}}>
+        <div ref={ref} style={{...props.style}} className={props.className}>
+          {props.children}
+        </div>
+      </span>
+    )
+  }
 
   return (
-    <div ref={ref} style={props.style} className={props.className}>
+    <div ref={ref} style={{...props.style}} className={props.className}>
       {props.children}
     </div>
   );
