@@ -1834,6 +1834,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nrwl/cypress@npm:16.2.1":
+  version: 16.2.1
+  resolution: "@nrwl/cypress@npm:16.2.1"
+  dependencies:
+    "@nx/cypress": 16.2.1
+  checksum: dcfa09e12d862723f5edb92d591028cca0972f75cf769e270df3d9fd0d21d064dc1113fdf479498826d45b70d07842661439f15510527346a871f7701dd8ab33
+  languageName: node
+  linkType: hard
+
 "@nrwl/devkit@npm:16.2.1":
   version: 16.2.1
   resolution: "@nrwl/devkit@npm:16.2.1"
@@ -1888,6 +1897,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nrwl/storybook@npm:16.2.1":
+  version: 16.2.1
+  resolution: "@nrwl/storybook@npm:16.2.1"
+  dependencies:
+    "@nx/storybook": 16.2.1
+  checksum: 2f99c209959157b705821c826f58b72e45f5ffa6758f69f9820a0de36e61ef4e1667d3c85d05fde47fe30ed709c0ad8b6f07a909e5baf8c4598148ddb14cfa55
+  languageName: node
+  linkType: hard
+
 "@nrwl/tao@npm:16.2.1":
   version: 16.2.1
   resolution: "@nrwl/tao@npm:16.2.1"
@@ -1923,6 +1941,27 @@ __metadata:
   dependencies:
     "@nx/workspace": 16.2.1
   checksum: b46e0ebd1dfeb6479e8e1888fd6067201e18fa3eef24ed320bb151c10689ad149488371c69667e94de4c0fdee0ba38b79850eac66cb84e529041c8beba78263d
+  languageName: node
+  linkType: hard
+
+"@nx/cypress@npm:16.2.1":
+  version: 16.2.1
+  resolution: "@nx/cypress@npm:16.2.1"
+  dependencies:
+    "@nrwl/cypress": 16.2.1
+    "@nx/devkit": 16.2.1
+    "@nx/js": 16.2.1
+    "@nx/linter": 16.2.1
+    "@phenomnomnominal/tsquery": ~5.0.1
+    detect-port: ^1.5.1
+    dotenv: ~10.0.0
+    semver: 7.3.4
+  peerDependencies:
+    cypress: ">= 3 < 13"
+  peerDependenciesMeta:
+    cypress:
+      optional: true
+  checksum: 6b76a51144377cdb7558542e734993dd7f5ae969b8ab6ea5c652b9d9d0791111923d6a5bc83996211cfd9c951ef4ac8fdbcceba051a5e42a8a4e179ea58dd4c1
   languageName: node
   linkType: hard
 
@@ -2091,6 +2130,24 @@ __metadata:
     file-loader: ^6.2.0
     minimatch: 3.0.5
   checksum: e5c75da8008c0f34f3f1b7e7cd2bba8dbc5a253f16ec5a85138bff7aed54ef3ecaa90d19a08dc59ec55cd9d7dea12353bed18f7c9cca879f0a0c90af4e96eae4
+  languageName: node
+  linkType: hard
+
+"@nx/storybook@npm:16.2.1, @nx/storybook@npm:^16.2.1":
+  version: 16.2.1
+  resolution: "@nx/storybook@npm:16.2.1"
+  dependencies:
+    "@nrwl/storybook": 16.2.1
+    "@nx/cypress": 16.2.1
+    "@nx/devkit": 16.2.1
+    "@nx/js": 16.2.1
+    "@nx/linter": 16.2.1
+    "@nx/workspace": 16.2.1
+    "@phenomnomnominal/tsquery": ~5.0.1
+    dotenv: ~10.0.0
+    enquirer: ~2.3.6
+    semver: 7.3.4
+  checksum: 19222851a944dfaa8da130803daa784eac04f19886b435c6a4a39fd0857decca4df738dff90b350171453ddf7e330dd0955b886dc30109fbe44d80140c0721a3
   languageName: node
   linkType: hard
 
@@ -2939,6 +2996,13 @@ __metadata:
   bin:
     acorn: bin/acorn
   checksum: f790b99a1bf63ef160c967e23c46feea7787e531292bb827126334612c234ed489a0dc2c7ba33156416f0ffa8d25bf2b0fdb7f35c2ba60eb3e960572bece4001
+  languageName: node
+  linkType: hard
+
+"address@npm:^1.0.1":
+  version: 1.2.2
+  resolution: "address@npm:1.2.2"
+  checksum: ace439960c1e3564d8f523aff23a841904bf33a2a7c2e064f7f60a064194075758b9690e65bd9785692a4ef698a998c57eb74d145881a1cecab8ba658ddb1607
   languageName: node
   linkType: hard
 
@@ -4013,6 +4077,19 @@ __metadata:
   version: 2.0.0
   resolution: "depd@npm:2.0.0"
   checksum: abbe19c768c97ee2eed6282d8ce3031126662252c58d711f646921c9623f9052e3e1906443066beec1095832f534e57c523b7333f8e7e0d93051ab6baef5ab3a
+  languageName: node
+  linkType: hard
+
+"detect-port@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "detect-port@npm:1.5.1"
+  dependencies:
+    address: ^1.0.1
+    debug: 4
+  bin:
+    detect: bin/detect-port.js
+    detect-port: bin/detect-port.js
+  checksum: b48da9340481742547263d5d985e65d078592557863402ecf538511735e83575867e94f91fe74405ea19b61351feb99efccae7e55de9a151d5654e3417cea05b
   languageName: node
   linkType: hard
 
@@ -7820,6 +7897,7 @@ __metadata:
     "@nx/js": ^16.2.1
     "@nx/linter": 16.2.1
     "@nx/react": ^16.2.1
+    "@nx/storybook": ^16.2.1
     "@nx/vite": 16.2.1
     "@testing-library/react": 14.0.0
     "@types/node": 18.14.2
