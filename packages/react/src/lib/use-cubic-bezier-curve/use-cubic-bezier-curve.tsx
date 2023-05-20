@@ -1,12 +1,11 @@
+/* eslint-disable-next-line */
 import React, { useEffect, useRef } from "react";
 import * as vanilla from "@superround/vanilla";
 import ShadowWrapper from "../shadow-wrapper/shadow-wrapper";
 
-/* eslint-disable-next-line */
-export interface UseQuadraticBezierCurveProps {
+export interface UseCubicBezierCurveProps {
   distanceFromCorner: string|number;
-  controlPointRadians?: number;
-  controlPointRadius?: string|number;
+  controlPointDistance?: string|number;
   children?: React.ReactNode;
   style?: React.CSSProperties;
   className?: React.HTMLAttributes<HTMLDivElement>['className'];
@@ -14,19 +13,19 @@ export interface UseQuadraticBezierCurveProps {
 }
 
 /**
- * The `UseQuadraticBezierCurve` component is a React wrapper of the `UseQuadraticBezierCurve` function.
+ * The `UseCubicBezierCurve` component is a React wrapper of the `UseCubicBezierCurve` function.
  * 
  * @param props
  * @returns 
  */
-export function UseQuadraticBezierCurve(props: UseQuadraticBezierCurveProps) {
+export function UseCubicBezierCurve(props: UseCubicBezierCurveProps) {
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined' || !ref.current) return; // SSR
 
-    vanilla.UseQuadraticBezierCurve(ref.current, props.distanceFromCorner, props.controlPointRadians, props.controlPointRadius);
-  }, [props.distanceFromCorner, props.controlPointRadians, props.controlPointRadius]);
+    vanilla.UseCubicBezierCurve(ref.current, props.distanceFromCorner, props.controlPointDistance);
+  }, [props.distanceFromCorner, props.controlPointDistance]);
 
   const element = (
     <div ref={ref} style={{...props.style}} className={props.className}>
@@ -45,4 +44,4 @@ export function UseQuadraticBezierCurve(props: UseQuadraticBezierCurveProps) {
   return element;
 }
 
-export default UseQuadraticBezierCurve;
+export default UseCubicBezierCurve;

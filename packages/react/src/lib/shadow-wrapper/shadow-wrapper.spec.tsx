@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import React from './react';
+import ShadowWrapper from './shadow-wrapper';
 
-describe('React', () => {
+describe('ShadowWrapper', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<React />);
+    const { baseElement } = render(<ShadowWrapper />);
     expect(baseElement).toBeTruthy();
   });
 });

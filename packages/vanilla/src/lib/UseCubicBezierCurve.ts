@@ -12,7 +12,7 @@ import toPx from "to-px";
 export function UseCubicBezierCurve(
   element: HTMLElement,
   distanceFromCorner: string | number,
-  controlPointDistance: string | number,
+  controlPointDistance: string | number = 1,
 ): string | null {
   const distance = getDistanceFromCorner(distanceFromCorner, element);
   if (distance === null) {
