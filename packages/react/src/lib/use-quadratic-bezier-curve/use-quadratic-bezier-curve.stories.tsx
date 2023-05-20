@@ -23,7 +23,19 @@ const Story: Meta<typeof UseQuadraticBezierCurve> = {
       min: -(Math.SQRT2).toFixed(2),
       max: (Math.SQRT2).toFixed(2),
       step: 0.01,
-    } }
+    } },
+    children: {
+      options: ['div', 'img'],
+      mapping: {
+        div: <div style={{
+          width: '200px',
+          height: '200px',
+          backgroundColor: 'tomato',}} />,
+        img: <img src="https://placehold.co/200" alt="placeholder" />,
+      },
+      control: {
+        type: 'select',
+      } },
   },
 };
 export default Story;
@@ -33,12 +45,7 @@ export const Squircle = {
     distanceFromCorner: 0.5,
     controlPointRadians: Math.PI / 4,
     controlPointRadius: Math.SQRT2,
-    children: (
-    <div style={{
-      width: '200px', 
-      height: '200px', 
-      backgroundColor: 'tomato',}}>
-    </div>),
+    children: 'div',
     shadow: '0 0 3em rgba(0, 0, 0, 0.5)',
   },
 };
@@ -48,10 +55,7 @@ export const Stamp = {
     distanceFromCorner: 0.1,
     controlPointRadians: Math.PI / 4,
     controlPointRadius: 0,
-    children: <div style={{
-      width: '200px', 
-      height: '200px', 
-      backgroundColor: 'cornflowerblue'}} />,
+    children: 'div',
     shadow: '0 0 3em rgba(0, 0, 0, 0.5)',
   },
 };
