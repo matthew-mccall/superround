@@ -4,6 +4,7 @@ import { UseQuadraticBezierCurve } from './use-quadratic-bezier-curve';
 const Story: Meta<typeof UseQuadraticBezierCurve> = {
   component: UseQuadraticBezierCurve,
   title: 'UseQuadraticBezierCurve',
+  tags: ['autodocs'],
   argTypes: {
     distanceFromCorner: { control: {
       type: 'range',
