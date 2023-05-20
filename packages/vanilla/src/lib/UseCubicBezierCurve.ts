@@ -10,49 +10,49 @@ import toPx from "to-px";
  * @returns The path to applied to the element's `clip-path` property.
  */
 export function UseCubicBezierCurve(
-    element: HTMLElement,
-    distanceFromCorner: string | number,
-    controlPointDistance: string | number,
+  element: HTMLElement,
+  distanceFromCorner: string | number,
+  controlPointDistance: string | number,
 ): string | null {
-    const distance = getDistanceFromCorner(distanceFromCorner, element);
-    if (distance === null) {
-        return null;
+  const distance = getDistanceFromCorner(distanceFromCorner, element);
+  if (distance === null) {
+    return null;
+  }
+
+  if (typeof controlPointDistance === 'string') {
+    const controlPointDistancePx = toPx(controlPointDistance, element);
+    if (controlPointDistancePx === null) {
+      return null;
     }
 
-    if (typeof controlPointDistance === 'string') {
-        const controlPointDistancePx = toPx(controlPointDistance, element);
-        if (controlPointDistancePx === null) {
-            return null;
-        }
+    controlPointDistance = controlPointDistancePx;
+  } else {
+    controlPointDistance *= distance;
+  }
 
-        controlPointDistance = controlPointDistancePx;
-    } else {
-        controlPointDistance *= distance;
-    }
+  const width = element.offsetWidth;
+  const height = element.offsetHeight;
 
-    const width = element.offsetWidth;
-    const height = element.offsetHeight;
+  /**
+   * The following diagram shows the axes used to create the path.
+   *
+   *  wLesser
+   *     |________|
+   * ___/|________|\___ hLesser
+   *   [ |        | ]
+   *   [ |        | ]
+   * __[_|________|_]__ hGreater
+   *    \|________|/
+   *     |        |
+   *           wGreater
+   */
 
-    /**
-     * The following diagram shows the axes used to create the path.
-     *
-     *  wLesser
-     *     |________|
-     * ___/|________|\___ hLesser
-     *   [ |        | ]
-     *   [ |        | ]
-     * __[_|________|_]__ hGreater
-     *    \|________|/
-     *     |        |
-     *           wGreater
-     */
+  const wLesser = distance;
+  const wGreater = width - distance;
+  const hLesser = distance;
+  const hGreater = height - distance;
 
-    const wLesser = distance;
-    const wGreater = width - distance;
-    const hLesser = distance;
-    const hGreater = height - distance;
-
-    const path = `path("\\
+  const path = `path("\\
     M ${width} ${distance} \\
     C ${width} ${hLesser - controlPointDistance} ${wGreater + controlPointDistance} 0 ${wGreater} 0 \\
     H ${wLesser} \\
@@ -63,7 +63,7 @@ export function UseCubicBezierCurve(
     C ${wGreater + controlPointDistance} ${height} ${width} ${hGreater + controlPointDistance} ${width} ${hGreater} \\
     Z")`
 
-    element.style.clipPath = path;
+  element.style.clipPath = path;
 
-    return path;
+  return path;
 }
