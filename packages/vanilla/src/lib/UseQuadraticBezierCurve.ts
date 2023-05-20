@@ -11,7 +11,7 @@ import {getDistanceFromCorner, polarToCartesian} from "./Util";
  * @param distanceFromCorner The distance from the corner to apply the rounded corner to. This can be a number (a percentage) between 0 and 1, or a string representing a CSS length.
  * @param controlPointRadians The angle of the control point in radians.
  * @param controlPointRadius The radius of the control point.
- * @returns True if the rounded corners were applied successfully, false otherwise.
+ * @returns The path to applied to the element's `clip-path` property.
  */
 export function UseQuadraticBezierCurve(
   element: HTMLElement, 

@@ -1,11 +1,19 @@
 import {getDistanceFromCorner} from "./Util";
 import toPx from "to-px";
 
+/**
+ * UseCubicBezierCurve applies rounded corners to a DOM element using a cubic bezier curve.
+ *
+ * @param element The DOM element to apply the rounded corners to.
+ * @param distanceFromCorner The distance from the corner to apply the rounded corner to. This can be a number (a percentage) between 0 and 1, or a string representing a CSS length.
+ * @param controlPointDistance The distance of the control point from the curve ends to the corner. This can be a number (a percentage) between 0 and 1, or a string representing a CSS length.
+ * @returns The path to applied to the element's `clip-path` property.
+ */
 export function UseCubicBezierCurve(
     element: HTMLElement,
     distanceFromCorner: string | number,
     controlPointDistance: string | number,
-) : string | null {
+): string | null {
     const distance = getDistanceFromCorner(distanceFromCorner, element);
     if (distance === null) {
         return null;
