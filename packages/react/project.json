@@ -17,7 +17,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/react"
+        "outputPath": "dist/packages/react",
+        "assets": ["packages/react/*.md"]
       },
       "configurations": {
         "development": {
