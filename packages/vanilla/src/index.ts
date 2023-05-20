@@ -1,1 +1,1 @@
-export * from './lib/vanilla';
+export * from './lib/UseQuadraticBezierCurve';
